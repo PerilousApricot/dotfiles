@@ -1,0 +1,9 @@
+# VIM configuration #
+
+I mostly do c/c++/python development.
+
+A lot of here comes from
+http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide
+
+there's a LOT of submodules here. this should be changed to reference specific
+SHA1 for those packages (for sanity/security's sake)

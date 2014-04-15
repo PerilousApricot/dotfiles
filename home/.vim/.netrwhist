@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/cvmfs/cms.cern.ch/SITECONF/local'
+let g:netrw_dirhist_2='/gpfs22/home/meloam/analysis/AnalysisTools/cmssw/shyft_edntuple_53xv2/CMSSW_5_3_11/src/Analysis/SHyFTScripts/python/systs_8TeV_ttbar_noTau'
+let g:netrw_dirhist_3='/gpfs22/home/meloam/checksummer'
+let g:netrw_dirhist_4='/gpfs21/scratch/meloam/SUSHyFT-Scripts/scripts'
+let g:netrw_dirhist_5='/etc/cvmfs/config.d'
