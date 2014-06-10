@@ -1,0 +1,7 @@
+[user]
+	name = Andrew Melo
+	email = andrew.m.melo@vanderbilt.edu
+[core]
+	editor = vim
+[push]
+	default = simple

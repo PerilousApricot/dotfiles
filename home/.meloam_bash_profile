@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# This should only be executed if meloam is the owning TTY
+MY_TTY=`tty`
+if [ ! -e $MY_TTY ]; then
+    # not actually a tty
+    return
+fi
+TTY_OWNER=`ls -ld ${MY_TTY}  | awk '{print $3}'`
+if [ $TTY_OWNER != 'meloam' ]; then
+    return
+fi
+
 # Load RVM, if you are using it
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
@@ -7,7 +18,7 @@
 export PATH=$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin
 
 # Path to the bash it configuration
-export BASH_IT=$HOME/.bash_it
+export BASH_IT=$HOME/.meloam_bash_it
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
@@ -44,5 +55,8 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # Load Bash It
 source $BASH_IT/bash_it.sh
+# Load homeshick
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
