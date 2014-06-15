@@ -56,6 +56,8 @@ source $BASH_IT/bash_it.sh
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
+alias ls="ls --color=auto"
+
 GIT_COMMITTER_NAME="Andrew Melo"
 GIT_AUTHOR_NAME="Andrew Melo"
 GIT_COMMITTER_EMAIL="andrew.m.melo@vanderbilt.edu"
