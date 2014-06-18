@@ -1,0 +1,3 @@
+[submodule "home/.meloam_bash_it"]
+	path = home/.meloam_bash_it
+	url = git@github.com:PerilousApricot/bash-it.git
