@@ -57,6 +57,9 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 alias ls="ls --color=auto"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 GIT_COMMITTER_NAME="Andrew Melo"
 GIT_AUTHOR_NAME="Andrew Melo"

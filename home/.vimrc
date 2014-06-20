@@ -1,8 +1,23 @@
 " prologue stuff, set up the general vim environment
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 set nocompatible
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
+" Colorization stuff
+set t_Co=256
+set background=dark
+let g:molokai_original = 0
+colorscheme molokai
+
+filetype plugin indent on
+syntax on
+syntax sync fromstart 
+" Some configs for vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+let g:airline_detect_paste=1
+let airline#extensions#tabline#buffer_nr_show = 1
 
 " have vim jump back to previous position
 autocmd BufReadPost *
@@ -10,12 +25,11 @@ autocmd BufReadPost *
     \   exe "normal! g`\"" |
     \ endif
 
-
 " fix double-mapped todolist
 map <leader>v <Plug>TaskList
 " following settings were cribbed from
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim
-" set the Lord's syntax settings
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -36,7 +50,7 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-syntax on
+set undofile
 
 " now, the <leader> key is what i'm hitting all day
 " make it something that is always in the same place
@@ -121,13 +135,17 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" I don't use tabs, so remap tab-switching to buffer-switching
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
 " Make a new terminal with :Terminal
 function! s:Terminal()
   execute 'ConqueTermSplit bash --login'
 endfunction
 command! Terminal call s:Terminal()
 
-filetype on
 filetype plugin indent on
 
 " Python stuff
@@ -149,36 +167,6 @@ nmap <leader>a <Esc>:Ack!
 " remap <leader>W :%s/\s+$//<cr>:let @/=''<CR>
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 
-"
-" COLORS
-"
-
-:set t_Co=256 " 256 colors
-:set background=dark
-:color molokai
-:highlight Normal ctermfg=white ctermbg=black
+"highlight Normal ctermfg=white ctermbg=black
 :set fenc=utf-8
 inoremap jj <ESC>
-":set autoindent
-":set tabstop=4
-":set shiftwidth=4
-":set pastetoggle=<F12>
-":set softtabstop=4
-":set noexpandtab
-"":set virtualedit=all
-":map <Up> gk
-":map <Down> gj
-"set expandtab
-"set softtabstop=4
-"set shiftwidth=4
-"set autoindent
-"set tabstop=4
-"set shiftwidth=4
-"set autoindent
-"set smartindent
-"set vb t_vb=
-"set showmatch
-"syntax on
-"set ruler
-"set foldmethod=indent
-"set foldlevel=99
