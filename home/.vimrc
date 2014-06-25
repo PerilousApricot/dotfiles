@@ -55,8 +55,8 @@ set laststatus=2
 if exists("&undofile")
     set undodir=~/.vim/undodir
     set undofile
-    set undolevels = 1000 "maximum number of changes that can be undone
-    set undoreload = 10000 "maximum number lines to save for undo on a buffer reload
+    set undolevels=1000 "maximum number of changes that can be undone
+    set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 endif
 " now, the <leader> key is what i'm hitting all day
 " make it something that is always in the same place
