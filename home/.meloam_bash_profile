@@ -66,4 +66,17 @@ GIT_AUTHOR_NAME="Andrew Melo"
 GIT_COMMITTER_EMAIL="andrew.m.melo@vanderbilt.edu"
 GIT_AUTHOR_EMAIL="andrew.m.melo@vanderbilt.edu"
 
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+syspip(){
+    PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+# load up the sushyft alias
+if [[ $HOME == /Users/meloam && -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
+    source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
+fi
+
 [[ -r ~/.bashrc ]] && . ~/.bashrc
