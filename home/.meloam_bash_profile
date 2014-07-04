@@ -74,9 +74,14 @@ syspip(){
     PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-# load up the sushyft alias
-if [[ $HOME == /Users/meloam && -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
-    source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
+# Mac-specific tasks
+if [[ $HOME == /Users/meloam ]]; then
+    # load the sushyft alias
+    if [[ -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
+        source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
+    fi
+    export PATH=/usr/local/bin:$PATH
 fi
+
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
