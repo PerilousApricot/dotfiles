@@ -92,7 +92,7 @@ if [[ $HOME == /Users/meloam ]]; then
     alias cmsset="source /opt/cms/cmsset_default.sh"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-    export CMSSW_MIRROR_PATH=/opt/cmssw
+    export CMSSW_GIT_REFERENCE=/opt/cmssw
     # load the sushyft alias
     if [[ -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
         source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
