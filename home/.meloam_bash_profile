@@ -70,9 +70,21 @@ syspip(){
 }
 
 # Set CMSSW mirror for places it exists
-if [ -e /cvmfs/cms.cern.ch/cmssw.git ]; then
-    export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git
+if [ -e /cvmfs/cms.cern.ch/cmssw.git.daily ]; then
+    export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
 fi
+
+# Set the local mirror path if it exists
+if [ -e $HOME/.meloam_local/bin/ ]; then
+    export PATH=$HOME/.meloam_local/bin:$PATH;
+fi
+
+for CMSDIR in /cvmfs/cms.cern.ch/cmsset_default.sh /opt/cms/cmsset_default.sh; do
+    if [ -e $CMSDIR ]; then
+        alias cmsset="source $CMSDIR"
+        break
+    fi
+done
 
 # Mac-specific tasks
 if [[ $HOME == /Users/meloam ]]; then
