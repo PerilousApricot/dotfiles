@@ -1,0 +1,7 @@
+{
+cout << "******************************" << endl;
+cout << "*  Welcome to ROOT v" << gROOT->GetVersion() << "  *" << endl;
+cout << "*     (sorry you have to use ROOT)    *" << endl;
+cout << "******************************" << endl;
+cout << endl;
+}
