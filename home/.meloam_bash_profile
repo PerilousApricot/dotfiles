@@ -26,6 +26,9 @@ export BASH_IT=$HOME/.meloam_bash_it
 # location /.bash_it/themes/
 export BASH_IT_THEME='zork'
 
+# Turn off git details
+export SCM_GIT_SHOW_DETAILS=false
+
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@github.com'
 
@@ -79,6 +82,18 @@ if [ -e $HOME/.meloam_local/bin/ ]; then
     export PATH=$HOME/.meloam_local/bin:$PATH;
 fi
 
+# Enable linuxbrew if found
+if [ -e $HOME/.meloam_linuxbrew ]; then
+    export PATH="$HOME/.meloam_linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.meloam_linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.meloam_linuxbrew/share/info:$INFOPATH"
+fi
+#    alias linuxbrew_get="
+#ln -s $(which gcc) $prefix/bin/gcc-$(gcc -dumpversion |cut -d. -f1,2)
+#ln -s $(which g++) $prefix/bin/g++-$(g++ -dumpversion |cut -d. -f1,2)
+#ln -s $(which gfortran) $prefix/bin/gfortran-$(gfortran -dumpversion |cut -d. -f1,2)
+#brew install hello && brew test -v hello; brew remove hello
+#"
 for CMSDIR in /cvmfs/cms.cern.ch/cmsset_default.sh /opt/cms/cmsset_default.sh; do
     if [ -e $CMSDIR ]; then
         alias cmsset="source $CMSDIR"
@@ -100,5 +115,8 @@ if [[ $HOME == /Users/meloam ]]; then
     export PATH=/usr/local/bin:$PATH
 fi
 
+if [[ ! -z "${PBS_JOBID}" && -e /cvmfs/cms.cern.ch/ ]]; then
+    source /cvmfs/cms.cern.ch/cmsset_default.sh
+fi
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
