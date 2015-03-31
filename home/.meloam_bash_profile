@@ -73,7 +73,7 @@ syspip(){
 }
 
 # Set CMSSW mirror for places it exists
-if [ -e /cvmfs/cms.cern.ch/cmssw.git.daily ]; then
+if [ -e /cvmfs/ ]; then
     export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
 fi
 
@@ -88,12 +88,6 @@ if [ -e $HOME/.meloam_linuxbrew ]; then
     export MANPATH="$HOME/.meloam_linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.meloam_linuxbrew/share/info:$INFOPATH"
 fi
-#    alias linuxbrew_get="
-#ln -s $(which gcc) $prefix/bin/gcc-$(gcc -dumpversion |cut -d. -f1,2)
-#ln -s $(which g++) $prefix/bin/g++-$(g++ -dumpversion |cut -d. -f1,2)
-#ln -s $(which gfortran) $prefix/bin/gfortran-$(gfortran -dumpversion |cut -d. -f1,2)
-#brew install hello && brew test -v hello; brew remove hello
-#"
 for CMSDIR in /cvmfs/cms.cern.ch/cmsset_default.sh /opt/cms/cmsset_default.sh; do
     if [ -e $CMSDIR ]; then
         alias cmsset="source $CMSDIR"
@@ -104,11 +98,8 @@ done
 # Mac-specific tasks
 if [[ $HOME == /Users/meloam ]]; then
     export SCRAM_ARCH=osx107_amd64_gcc462
-    alias cmsset="source /opt/cms/cmsset_default.sh"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-    export CMSSW_GIT_REFERENCE=/opt/cmssw
-    # load the sushyft alias
     if [[ -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
         source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
     fi
