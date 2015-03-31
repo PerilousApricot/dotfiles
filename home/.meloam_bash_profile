@@ -70,7 +70,7 @@ syspip(){
 }
 
 # Set CMSSW mirror for places it exists
-if [ -e /cvmfs/cms.cern.ch/cmssw.git.daily ]; then
+if [ -e /cvmfs/ ]; then
     export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
 fi
 
@@ -79,7 +79,7 @@ if [ -e $HOME/.meloam_local/bin/ ]; then
     export PATH=$HOME/.meloam_local/bin:$PATH;
 fi
 
-for CMSDIR in /cvmfs/cms.cern.ch/cmsset_default.sh /opt/cms/cmsset_default.sh; do
+for CMSDIR in /opt/cms/cmsset_default.sh /cvmfs/cms.cern.ch/cmsset_default.sh; do
     if [ -e $CMSDIR ]; then
         alias cmsset="source $CMSDIR"
         break
@@ -89,10 +89,8 @@ done
 # Mac-specific tasks
 if [[ $HOME == /Users/meloam ]]; then
     export SCRAM_ARCH=osx107_amd64_gcc462
-    alias cmsset="source /opt/cms/cmsset_default.sh"
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-    export CMSSW_GIT_REFERENCE=/opt/cmssw
     # load the sushyft alias
     if [[ -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
         source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
