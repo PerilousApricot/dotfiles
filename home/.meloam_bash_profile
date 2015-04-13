@@ -95,7 +95,7 @@ if [[ $HOME == /Users/meloam ]]; then
     if [[ -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
         source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
     fi
-    export PATH=/usr/local/bin:$PATH
+    export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 
 
