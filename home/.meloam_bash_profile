@@ -26,6 +26,9 @@ export BASH_IT=$HOME/.meloam_bash_it
 # location /.bash_it/themes/
 export BASH_IT_THEME='zork'
 
+# Turn off git details
+export SCM_GIT_SHOW_DETAILS=false
+
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@github.com'
 
@@ -85,18 +88,26 @@ if [ -e /cvmfs ]; then
 else
     alias cmsset="source /opt/cms/cmsset_default.sh"
 fi
+# Enable linuxbrew if found
+if [ -e $HOME/.meloam_linuxbrew ]; then
+    export PATH="$HOME/.meloam_linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.meloam_linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.meloam_linuxbrew/share/info:$INFOPATH"
+fi
 
 # Mac-specific tasks
 if [[ $HOME == /Users/meloam ]]; then
     export SCRAM_ARCH=osx107_amd64_gcc462
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-    # load the sushyft alias
     if [[ -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
         source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
     fi
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 
+if [[ ! -z "${PBS_JOBID}" && -e /cvmfs/cms.cern.ch/ ]]; then
+    source /cvmfs/cms.cern.ch/cmsset_default.sh
+fi
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
