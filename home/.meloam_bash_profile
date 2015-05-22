@@ -79,12 +79,12 @@ if [ -e $HOME/.meloam_local/bin/ ]; then
     export PATH=$HOME/.meloam_local/bin:$PATH;
 fi
 
-for CMSDIR in /opt/cms/cmsset_default.sh /cvmfs/cms.cern.ch/cmsset_default.sh; do
-    if [ -e $CMSDIR ]; then
-        alias cmsset="source $CMSDIR"
-        break
-    fi
-done
+if [ -e /cvmfs ]; then
+    alias cmsset="source /cvmfs/cms.cern.ch/cmsset_default.sh"
+    alias cmsenv="source /cvmfs/cms.cern.ch/cmsset_default.sh ; cmsenv"
+else
+    alias cmsset="source /opt/cms/cmsset_default.sh"
+fi
 
 # Mac-specific tasks
 if [[ $HOME == /Users/meloam ]]; then
