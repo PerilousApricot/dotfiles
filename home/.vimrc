@@ -53,7 +53,6 @@ set laststatus=2
 
 " Set persistent undo
 if exists("&undofile")
-    set undodir=~/.vim/undodir
     set undofile
     set undolevels=1000 "maximum number of changes that can be undone
     set undoreload=10000 "maximum number lines to save for undo on a buffer reload
@@ -176,3 +175,9 @@ map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 "highlight Normal ctermfg=white ctermbg=black
 :set fenc=utf-8
 inoremap jj <ESC>
+
+" Save temp files in $HOME and not all over the place
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+
