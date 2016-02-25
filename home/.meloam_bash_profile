@@ -88,7 +88,7 @@ fi
 
 if [ -e /cvmfs ]; then
     alias cmsset="source /cvmfs/cms.cern.ch/cmsset_default.sh"
-    alias cmsenv="source /cvmfs/cms.cern.ch/cmsset_default.sh ; cmsenv"
+    alias cmsenv="source /cvmfs/cms.cern.ch/cmsset_default.sh ; eval \`scramv1 runtime -sh\`"
 else
     alias cmsset="source /opt/cms/cmsset_default.sh"
 fi
