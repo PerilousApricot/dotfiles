@@ -117,8 +117,4 @@ if [[ $HOME == /Users/meloam ]]; then
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 
-if [[ ! -z "${PBS_JOBID}" && -e /cvmfs/cms.cern.ch/ ]]; then
-    source /cvmfs/cms.cern.ch/cmsset_default.sh
-fi
-
 [[ -r ~/.bashrc ]] && . ~/.bashrc
