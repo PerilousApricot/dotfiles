@@ -94,6 +94,8 @@ else
 fi
 # Enable linuxbrew if found
 if [ -e $HOME/.meloam_linuxbrew ]; then
+    export HOMEBREW_PREFIX="$HOME/.meloam_linuxbrew/"
+    export HOMEBREW_BUILD_FROM_SOURCE=2
     export PATH="$HOME/.meloam_linuxbrew/bin:$PATH"
     export MANPATH="$HOME/.meloam_linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.meloam_linuxbrew/share/info:$INFOPATH"
