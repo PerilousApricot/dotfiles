@@ -98,6 +98,11 @@ if [ -e $HOME/.meloam_linuxbrew ]; then
     export MANPATH="$HOME/.meloam_linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.meloam_linuxbrew/share/info:$INFOPATH"
 fi
+function meloam_set_docker_machine() {
+    eval $(docker-machine env $1)
+}
+
+alias setdocker="meloam_set_docker_machine"
 
 # Mac-specific tasks
 if [[ $HOME == /Users/meloam ]]; then
