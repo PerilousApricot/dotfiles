@@ -13,6 +13,9 @@ if [[ $1 == "SHARED" ]]; then
     fi
 fi
 
+# Load secrets
+[ -e $HOME/.meloam_bash_profile_secrets ] && source $HOME/.meloam_bash_profile_secrets
+
 # Load RVM, if you are using it
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
