@@ -20,7 +20,8 @@ fi
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # Add rvm gems and nginx to the path
-export PATH=$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin
+export PATH=$PATH:~/.gems/bin:/opt/nginx/sbin
+export GEM_HOME=$HOME/.gems
 
 # Path to the bash it configuration
 export BASH_IT=$HOME/.meloam_bash_it
