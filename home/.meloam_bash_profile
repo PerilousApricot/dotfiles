@@ -108,7 +108,7 @@ alias setdocker="meloam_set_docker_machine"
 if [[ $HOME == /Users/meloam ]]; then
     export SCRAM_ARCH=osx107_amd64_gcc462
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:$MANPATH"
     if [[ -r /Users/meloam/projects/analysis/scripts/sushyft_source.sh ]]; then
         source /Users/meloam/projects/analysis/scripts/sushyft_source.sh
     fi
